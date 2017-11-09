@@ -26,3 +26,42 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.proj-thmbs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+
+.proj-thmb__img-wrap {
+    width: 100%;
+}
+
+.proj-thmb__img {
+    max-width: 100%;
+}
+
+.proj-thmb__container {
+    width: calc(50% - 5px);
+    position: relative;
+}
+
+.proj-thmb__title {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    color: white;
+    font-size: 26px;
+}
+
+.proj-thmb__subheading {
+    position: absolute;
+    top: 50px;
+    left: 15px;
+    right: 15px;
+    color: beige;
+    text-align: justify;
+}

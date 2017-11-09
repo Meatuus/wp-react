@@ -4,24 +4,26 @@ import React, { Component } from 'react';
 //     Route,
 //     Link
 // } from 'react-router-dom';
-import Project from './Project';
+import Projects from './Projects';
 
 class Home extends Component {
     constructor() {
         super();
 
         this.state = {
-            wpData: []
+            // wpData: []
+            projects: []
         }
     }
 
     componentDidMount() {
-        const dataUrl = "http://local.site.com/wp-json/wp/v2/pages/"
+        // const dataUrl = "http://local.site.com/wp-json/wp/v2/pages/"
+        const projectsUrl = "http://local.site.com/wp-json/wp/v2/projects"
 
-        fetch(dataUrl)
+        fetch(projectsUrl)
             .then(res => res.json())
             .then((json) => {
-                this.setState({ wpData: json })
+                this.setState({ projects: json })
             })
     }
 
@@ -29,7 +31,7 @@ class Home extends Component {
         return (
             <div>
                 <h2>Home PAge</h2>
-                <Project data={this.state.wpData} />
+                <Projects projects={this.state.projects} />
             </div>
         );
     }
