@@ -1,21 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {
+    BrowserRouter,
+    Route,
+    Link
+} from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './App.css';
+import Home from './containers/Home';
+import About from './containers/About';
+import Project from './containers/Project';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <header className="App-header">
+                        <h2>Nav Bar</h2>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            {/* <li><Link to="/home/project">Project</Link></li> */}
+                            <li><HashLink to="/#projects">Projects</HashLink></li>
+                            <li><Link to="/about">About</Link></li>
+                        </ul>
+                    </header>
+
+                    <Route exact path="/" component={Home} />
+                    <Route path="/home" component={Home}>
+                        {/* <Route path="/home/project" component={Project} /> */}
+                    </Route>
+                    <Route path="/about" component={About} />
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
