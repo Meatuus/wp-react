@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 
 class Project extends Component {
-    // constructor() {
-    //     super();
+    constructor() {
+        super();
 
-    //     this.state = {
-    //         wpData: []
-    //     }
-    // }
+        this.state = {
+            wpData: []
+        }
+    }
 
-    // componentDidMount() {
-    //     const dataUrl = "http://local.site.com/wp-json/wp/v2/pages/"
+    componentDidMount() {
+        const dataUrl = "http://local.site.com/wp-json/wp/v2/pages/"
 
-    //     fetch(dataUrl)
-    //         .then(res => res.json())
-    //         .then((json) => {
-    //             this.setState({ wpData: json })
-    //         })
-    // }
+        fetch(dataUrl)
+            .then(res => res.json())
+            .then((json) => {
+                this.setState({ wpData: json })
+            })
+    }
 
     render() {
-        const hero = this.props.data.map(page => {
+        const hero = this.state.wpData.map(page => {
             return <div key={page.id}>
                 <div>
                     <img src={page.acf.hero_image.url} alt={page.acf.hero_image.title} />

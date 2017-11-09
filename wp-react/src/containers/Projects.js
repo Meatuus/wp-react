@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
 
 class Projects extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            wpData: []
-        }
-    }
-
-    componentDidMount() {
-        const dataUrl = "http://local.site.com/wp-json/wp/v2/pages/"
-
-        fetch(dataUrl)
-            .then(res => res.json())
-            .then((json) => {
-                this.setState({ wpData: json })
-            })
-    }
 
     render() {
-        const hero = this.state.wpData.map(page => {
+        const hero = this.props.data.map(page => {
             return <div key={page.id}>
                 <div>
                     <img src={page.acf.hero_image.url} alt={page.acf.hero_image.title} />

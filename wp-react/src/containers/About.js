@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import Projects from './Projects';
-
-// import Projects from './Projects';
+import Project from './Project';
 
 class About extends Component {
 
@@ -12,14 +10,10 @@ class About extends Component {
             <div>
                 <h2>About PAge</h2>
                 <ul>
-                    {/* <li><Link to="/about">About</Link></li> */}
-                    <li><Link to="/about/projects">Projects</Link></li>
-                    {/* <li><Link to="/about">About</Link></li>
-                        <li><Link to="/topics">Topics</Link></li> */}
+                    <li><Link to="/about/project">Project</Link></li>
                 </ul>
-                {/* <Link to="/projects">Projects</Link> */}
 
-                <Route path='/about/projects' component={Projects} />
+                <Route path='/about/project' component={Project} />
             </div>
         );
     }
