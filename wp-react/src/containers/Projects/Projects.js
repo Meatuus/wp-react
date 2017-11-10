@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import './styles.css';
 
-import Project from '../../components/Project/Project';
+import Thumbnail from '../../components/Thumbnail/Thumbnail';
 
 class Projects extends Component {
     render() {
         const {projects} = this.props
         
         const hero = projects.map(proj => {
-            return <Project project={proj} key={proj.id} />
+
+            return <Thumbnail img={proj.acf.feature_image.url} 
+                title={proj.title.rendered}
+                subhd={proj.acf.subheading}
+                key={proj.id} />
         })
 
         return (
