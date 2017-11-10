@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-// import {
-//     // BrowserRouter,
-//     Route,
-//     Link
-// } from 'react-router-dom';
-import Projects from './Projects';
+import Projects from './Projects/Projects';
 
 class Home extends Component {
     constructor() {
         super();
 
         this.state = {
-            // wpData: []
             projects: []
         }
     }
