@@ -3,6 +3,25 @@ import './styles.css';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 
 class Projects extends Component {
+    constructor() {
+        super()
+
+        this.state = {
+            selectedProj: ""
+        }
+
+        this.onLinkClick = this.onLinkClick.bind(this)
+    }
+
+    onLinkClick(id) {
+        let project = this.props.projects.find(element => {
+            return id === element.id
+        })
+        this.setState({
+            selectedProj: project
+        })
+    }
+
     render() {
         const {projects} = this.props
         
@@ -10,14 +29,19 @@ class Projects extends Component {
             return <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
-                key={proj.id} />
+                key={proj.id}
+                id={proj.id}
+                onLinkClick={this.onLinkClick} />
         })
 
         return (
             <div>
-                <h1 className="proj-thmbs__title" onMouseEnter={this.hovered}>PROJECTS</h1>
+                <h1 className="proj-thmbs__title">PROJECTS</h1>
                 <div id="projects" className="proj-thmbs">
                     {hero}
+                </div>
+                <div>
+                    <h2>New Section</h2>
                 </div>
             </div>
         );

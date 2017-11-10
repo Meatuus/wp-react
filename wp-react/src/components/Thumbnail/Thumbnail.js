@@ -10,16 +10,20 @@ class Thumbnail extends Component {
 
         this.onHoverOver = this.onHoverOver.bind(this);
         this.onHoverOut = this.onHoverOut.bind(this);
+        this.onLinkClick = this.onLinkClick.bind(this);
     }
 
     onHoverOver() {
-        console.log(this);
         this.setState({ hovered: true })
     }
 
     onHoverOut() {
-        console.log(this);
         this.setState({ hovered: false })
+    }
+
+    onLinkClick(e) {
+        e.preventDefault()
+        this.props.onLinkClick(this.props.id)
     }
 
     render() {
@@ -39,7 +43,7 @@ class Thumbnail extends Component {
                     <h2 className="thumb__h2">{title}</h2>
                     <h3 className="thumb__h3">{subhd}</h3>
                 </div>
-                <a href="" className={isHovered ? "thumb__link hovered" : "thumb__link"}>Learn More</a>
+                <a href="" className={isHovered ? "thumb__link hovered" : "thumb__link"} onClick={this.onLinkClick}>Learn More</a>
             </div>
         );
     }
