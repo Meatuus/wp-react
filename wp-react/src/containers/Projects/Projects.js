@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles.css';
-
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 
 class Projects extends Component {
@@ -8,7 +7,6 @@ class Projects extends Component {
         const {projects} = this.props
         
         const hero = projects.map(proj => {
-
             return <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
