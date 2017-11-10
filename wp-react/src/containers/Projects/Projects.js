@@ -15,7 +15,7 @@ class Projects extends Component {
 
         return (
             <div>
-                <h1 className="proj-thmbs__title" onMouseEnter={this.hovered}>Projects</h1>
+                <h1 className="proj-thmbs__title" onMouseEnter={this.hovered}>PROJECTS</h1>
                 <div id="projects" className="proj-thmbs">
                     {hero}
                 </div>
