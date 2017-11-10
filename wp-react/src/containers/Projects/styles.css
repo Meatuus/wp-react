@@ -6,6 +6,10 @@
     margin: 0 10px;
 }
 
+.proj-thmbs__title {
+    font-weight: 400;
+}
+
 @media screen and (min-width: 500px) {
     .proj-thmbs {
         max-width: 480px;

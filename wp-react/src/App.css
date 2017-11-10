@@ -1,12 +1,7 @@
 @import url(./reset.css);
 
 body {
-    font-family: 'Jura', sans-serif;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-a {
-    font-family: 'Jura', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .App {
