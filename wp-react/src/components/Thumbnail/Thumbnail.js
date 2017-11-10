@@ -34,7 +34,7 @@ class Thumbnail extends Component {
         const isHovered = this.state.hovered
 
         return (
-            <div className={isHovered ? "thumb__container hovered" : "thumb__container"} style={bg} onMouseEnter={this.onHoverOver} onMouseLeave={this.onHoverOut}>
+            <div className={isHovered ? "thumb__container hovered" : "thumb__container"} style={bg} onMouseEnter={this.onHoverOver} onMouseLeave={this.onHoverOut} onClick={this.onHoverOver} >
                 <div className={isHovered ? "thumb__titles hovered" : "thumb__titles"}>
                     <h2 className="thumb__h2">{title}</h2>
                     <h3 className="thumb__h3">{subhd}</h3>

@@ -6,3 +6,29 @@
     margin: 0 10px;
 }
 
+@media screen and (min-width: 500px) {
+    .proj-thmbs {
+        max-width: 480px;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .proj-thmbs {
+        max-width: none;
+        margin: 0 20px;  
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .proj-thmbs {
+        margin: 0 20px;  
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .proj-thmbs {
+        max-width: 1180px;
+        margin: auto;
+    }
+}
