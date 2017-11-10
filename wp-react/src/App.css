@@ -1,3 +1,5 @@
+@import url(./reset.css);
+
 .App {
   text-align: center;
 }
@@ -28,15 +30,15 @@
 }
 
 
-.proj-thmbs {
+/* .proj-thmbs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 10px;
-}
+} */
 
-.proj-thmb__img-wrap {
+/* .proj-thmb__img-wrap {
     width: 100%;
 }
 
@@ -45,7 +47,7 @@
 }
 
 .proj-thmb__container {
-    width: calc(50% - 5px);
+    width: calc(50% - 5px);    
     position: relative;
 }
 
@@ -64,4 +66,4 @@
     right: 15px;
     color: beige;
     text-align: justify;
-}
+} */
