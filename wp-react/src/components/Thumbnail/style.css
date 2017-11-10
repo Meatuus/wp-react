@@ -7,11 +7,12 @@
 .thumb__container::before {
     opacity: 0;
 
-    background: red;
+    /* background: red; */
+    background: white;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
+    right: -1px;
     left: 0;
     content: '';
 
@@ -65,11 +66,15 @@
     transform: translateX(-50%);
     transition: 0.4s all;
 
+    border: 2px solid #ff3d38;
+    padding: 10px 20px;
+
     color: black;
-    border: 1px solid #ff3d38;
-    padding: 7px 15px;
     font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 0.5px;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .thumb__link.hovered {
@@ -77,6 +82,12 @@
     transform: translateX(-50%) translateY(-60px);
     transition: 0.4s all;
     transition-delay: 0.1s;
+}
+
+.thumb__link:hover,
+.thumb__link:focus {
+    background: #ff3d38;
+    color: white !important;
 }
 
 @media screen and (min-width: 500px) {
