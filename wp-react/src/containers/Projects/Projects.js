@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
+import Project from '../../components/Project/Project';
 
 class Projects extends Component {
     constructor() {
@@ -24,6 +25,7 @@ class Projects extends Component {
 
     render() {
         const {projects} = this.props
+        const {selectedProj} = this.state
         
         const hero = projects.map(proj => {
             return <Thumbnail img={proj.acf.feature_image.url} 
@@ -34,15 +36,19 @@ class Projects extends Component {
                 onLinkClick={this.onLinkClick} />
         })
 
+        let project = null
+        if (selectedProj !== "") {
+            project = <Project project={this.state.selectedProj} />
+        //     return <Project project={this.state.selectedProj} />
+        }
+
         return (
             <div>
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
                 <div id="projects" className="proj-thmbs">
                     {hero}
                 </div>
-                <div>
-                    <h2>New Section</h2>
-                </div>
+                {project}
             </div>
         );
     }
