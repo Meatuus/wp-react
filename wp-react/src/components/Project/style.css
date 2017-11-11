@@ -8,6 +8,16 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
+.proj__bg {
+    opacity: 0;
+    transition: 0.4s all;
+}
+
+.proj__bg.mounted {
+    opacity: 1;
+    transition: .6s all;
+}
+
 .proj__container {
     background: white;
     height: 100%;
@@ -19,6 +29,16 @@
     width: 700px;
 
     text-align: left;
+}
+
+.proj__container {
+    opacity: 0;
+    transition: 0.4s all;
+}
+
+.proj__container.mounted {
+    opacity: 1;
+    transition: .8s all;
 }
 
 .proj__img {

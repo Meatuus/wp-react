@@ -44,7 +44,7 @@ class Projects extends Component {
 
         let project = null
         if (selectedProj !== "") {
-            project = <Project project={this.state.selectedProj} onClose={this.onCloseSelected} />
+            project = <Project project={this.state.selectedProj} onClose={this.onCloseSelected} onTransitionEnd={this.transitionEnd}/>
         }
 
         return (
