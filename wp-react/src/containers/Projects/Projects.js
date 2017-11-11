@@ -21,6 +21,12 @@ class Projects extends Component {
         this.setState({
             selectedProj: project
         })
+
+        this.onCloseSelected = this.onCloseSelected.bind(this);
+    }
+
+    onCloseSelected() {
+        this.setState({selectedProj: ""})
     }
 
     render() {
@@ -38,8 +44,7 @@ class Projects extends Component {
 
         let project = null
         if (selectedProj !== "") {
-            project = <Project project={this.state.selectedProj} />
-        //     return <Project project={this.state.selectedProj} />
+            project = <Project project={this.state.selectedProj} onClose={this.onCloseSelected} />
         }
 
         return (
