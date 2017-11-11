@@ -43,7 +43,7 @@ class Projects extends Component {
         }
 
         return (
-            <div>
+            <div className="projects">
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
                 <div id="projects" className="proj-thmbs">
                     {hero}
