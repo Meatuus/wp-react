@@ -41,7 +41,7 @@ class Project extends Component {
 
         const bg = {
         //     backgroundImage: `url(${project.acf.feature_image.url})`
-            backgroundImage: `url(${featImages[1].guid})`
+            backgroundImage: `url(${featImages[0].guid})`
         }
 
         return (

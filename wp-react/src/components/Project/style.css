@@ -110,7 +110,7 @@
     position: absolute;
     top: 287px;
     height: 60px;
-    background: rgba(54, 54, 54, 0.5);;
+    background: rgba(54, 54, 54, 0.5);
     cursor: pointer;
     padding: 10px 15px;
 
@@ -121,7 +121,7 @@
 .left:focus,
 .right:hover,
 .right:focus {
-    background: #ff3d38;
+    background: rgba(47, 47, 47, 0.85);
 
     transition: 0.3s all ease;
 }
