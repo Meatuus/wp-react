@@ -104,3 +104,30 @@
 
     transition: 0.4s all;
 }
+
+.left,
+.right {
+    position: absolute;
+    top: 290px;
+    height: 60px;
+    background: rgba(54, 54, 54, 0.5);;
+    cursor: pointer;
+    padding: 10px 15px;
+
+    transition: 0.3s all ease;
+}
+
+.left:hover,
+.right:hover {
+    background: #ff3d38;
+
+    transition: 0.3s all ease;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
