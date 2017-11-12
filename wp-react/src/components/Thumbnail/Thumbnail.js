@@ -43,7 +43,7 @@ class Thumbnail extends Component {
                     <h2 className="thumb__h2">{title}</h2>
                     <h3 className="thumb__h3">{subhd}</h3>
                 </div>
-                <a href="" className={isHovered ? "thumb__link hovered" : "thumb__link"} onClick={this.onLinkClick}>Learn More</a>
+                <a href="" className={isHovered ? "thumb__link hovered" : "thumb__link"} onClick={this.onLinkClick}>Learn&nbsp;More</a>
             </div>
         );
     }

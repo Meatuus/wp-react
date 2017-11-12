@@ -108,7 +108,7 @@
 .left,
 .right {
     position: absolute;
-    top: 290px;
+    top: 287px;
     height: 60px;
     background: rgba(54, 54, 54, 0.5);;
     cursor: pointer;
@@ -118,7 +118,9 @@
 }
 
 .left:hover,
-.right:hover {
+.left:focus,
+.right:hover,
+.right:focus {
     background: #ff3d38;
 
     transition: 0.3s all ease;

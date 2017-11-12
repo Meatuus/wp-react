@@ -62,7 +62,7 @@
     opacity: 0;
     position: absolute;
     bottom: 0px;
-    width: fit-content;
+    width: initial;
     left: 50%;
     transform: translateX(-50%);
     transition: 0.4s all;
