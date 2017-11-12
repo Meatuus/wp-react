@@ -8,12 +8,14 @@ class Project extends Component {
         super(props)
         this.state = {
             mounted: false,
-            featImages: this.props.project.gallery
+            featImages: this.props.project.gallery,
+            selectedImage: this.props.project.gallery[0]
         }
 
         this.close = this.close.bind(this)
         this.stopPropagation = this.stopPropagation.bind(this)
-        this.rotateImages = this.rotateImages.bind(this)
+        this.imageLeft = this.imageLeft.bind(this)
+        this.imageRight = this.imageRight.bind(this)
     }
 
     close() {
@@ -26,8 +28,13 @@ class Project extends Component {
         e.stopPropagation()
     }
 
-    rotateImages() {
-        console.log('direction');
+    imageLeft() {
+        console.log('left');
+        
+    }
+
+    imageRight() {
+        console.log('right');
     }
 
     componentDidMount() {
@@ -37,18 +44,34 @@ class Project extends Component {
 
     render() {
         const {project} = this.props
-        const {mounted, featImages} = this.state
+        const {mounted, featImages, selectedImage} = this.state
 
         const bg = {
         //     backgroundImage: `url(${project.acf.feature_image.url})`
-            backgroundImage: `url(${featImages[0].guid})`
+            backgroundImage: `url(${selectedImage.guid})`
+        }
+
+        let leftArrow = null
+        let rightArrow = null
+        if (featImages.findIndex((el) => { return el === selectedImage }) === 0) {
+            leftArrow = null
+            rightArrow = <img src={righty} alt="" className="right" onClick={this.imageRight} />
+        } else if (featImages.findIndex((el) => { return el === selectedImage }) === (featImages.length - 1)) {
+            leftArrow = <img src={lefty} alt="" className="left" onClick={this.imageLeft} />
+            rightArrow = null
+        } else {
+            leftArrow = <img src={lefty} alt="" className="left" onClick={this.imageLeft} />
+            rightArrow = <img src={righty} alt="" className="right" onClick={this.imageRight} />
         }
 
         return (
             <div className={mounted ? "proj__bg mounted" : "proj__bg"} onClick={this.close}>
                 <div className={mounted ? "proj__container mounted" : "proj__container"} onClick={this.stopPropagation} onTransitionEnd={this.transitionEnd}>    
                     <span className="proj__close" onClick={this.close}>X</span>
-                    <div className="proj__img" style={bg}><img src={lefty} alt="" className="left" onClick={this.rotateImages} /><img src={righty} alt="" className="right" onClick={this.rotateImages} /></div>                            
+                    <div className="proj__img" style={bg}>
+                        {leftArrow}
+                        {rightArrow}
+                    </div>                            
                     <h2 className="proj__title">{project.acf.page_title}</h2>
                     <h3 className="proj__subhd">{project.acf.page_subheading}</h3>
                     <p className="proj__desc">{project.acf.page_description}</p>
