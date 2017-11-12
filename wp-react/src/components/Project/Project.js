@@ -9,7 +9,7 @@ class Project extends Component {
         this.state = {
             mounted: false,
             featImages: this.props.project.gallery,
-            selectedImage: this.props.project.gallery[0]
+            selectedImage: this.props.project.gallery[1]
         }
 
         this.close = this.close.bind(this)
@@ -29,12 +29,24 @@ class Project extends Component {
     }
 
     imageLeft() {
-        console.log('left');
-        
+        const images = this.state.featImages
+        const newImage = images.find((element) => { 
+            return element === images[images.findIndex((el) => { 
+                return el === this.state.selectedImage
+             }) - 1] 
+        })
+        this.setState({selectedImage: newImage})
     }
 
     imageRight() {
         console.log('right');
+        const images = this.state.featImages
+        const newImage = images.find((element) => {
+            return element === images[images.findIndex((el) => {
+                return el === this.state.selectedImage
+            }) + 1]
+        })
+        this.setState({ selectedImage: newImage })
     }
 
     componentDidMount() {
