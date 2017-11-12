@@ -27,7 +27,7 @@ class Project extends Component {
     }
 
     rotateImages() {
-
+        console.log('direction');
     }
 
     componentDidMount() {
@@ -48,7 +48,7 @@ class Project extends Component {
             <div className={mounted ? "proj__bg mounted" : "proj__bg"} onClick={this.close}>
                 <div className={mounted ? "proj__container mounted" : "proj__container"} onClick={this.stopPropagation} onTransitionEnd={this.transitionEnd}>    
                     <span className="proj__close" onClick={this.close}>X</span>
-                    <div className="proj__img" style={bg}><img src={lefty} alt="" className="left" /><img src={righty} alt="" className="right" /></div>                            
+                    <div className="proj__img" style={bg}><img src={lefty} alt="" className="left" onClick={this.rotateImages} /><img src={righty} alt="" className="right" onClick={this.rotateImages} /></div>                            
                     <h2 className="proj__title">{project.acf.page_title}</h2>
                     <h3 className="proj__subhd">{project.acf.page_subheading}</h3>
                     <p className="proj__desc">{project.acf.page_description}</p>
