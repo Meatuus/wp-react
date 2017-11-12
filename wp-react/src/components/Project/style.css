@@ -6,16 +6,14 @@
     top: 0;
 
     background: rgba(0, 0, 0, 0.5);
-}
 
-.proj__bg {
     opacity: 0;
     transition: 0.4s all;
 }
 
 .proj__bg.mounted {
     opacity: 1;
-    transition: .6s all;
+    transition: .4s all;
 }
 
 .proj__container {
@@ -23,22 +21,21 @@
     height: 100%;
     left: 50%;
     position: absolute;
+    opacity: 0;
     overflow: scroll;
     top: 0;
-    transform: translateX(-50%);
+    transition: 0.4s all ease;
+    transform: translateX(-50%) scale(0.8);
     width: 700px;
 
     text-align: left;
 }
 
-.proj__container {
-    opacity: 0;
-    transition: 0.4s all;
-}
-
 .proj__container.mounted {
     opacity: 1;
-    transition: .8s all;
+    transition: opacity .2s ease, transform .7s ease;
+    transition-delay: .1s;
+    transform: translateX(-50%) scale(1);
 }
 
 .proj__img {
