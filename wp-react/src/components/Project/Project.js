@@ -9,7 +9,7 @@ class Project extends Component {
         this.state = {
             mounted: false,
             featImages: this.props.project.gallery,
-            selectedImage: this.props.project.gallery[1]
+            selectedImage: this.props.project.gallery[0]
         }
 
         this.close = this.close.bind(this)
@@ -65,7 +65,10 @@ class Project extends Component {
 
         let leftArrow = null
         let rightArrow = null
-        if (featImages.findIndex((el) => { return el === selectedImage }) === 0) {
+        if ((featImages.findIndex((el) => { return el === selectedImage }) === 0) && (featImages.findIndex((el) => { return el === selectedImage }) === (featImages.length - 1))) {
+            leftArrow = null
+            rightArrow = null
+        } else if (featImages.findIndex((el) => { return el === selectedImage }) === 0) {
             leftArrow = null
             rightArrow = <img src={righty} alt="" className="right" onClick={this.imageRight} />
         } else if (featImages.findIndex((el) => { return el === selectedImage }) === (featImages.length - 1)) {

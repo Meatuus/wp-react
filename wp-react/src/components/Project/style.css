@@ -24,7 +24,7 @@
     position: absolute;
     opacity: 0;
     overflow: scroll;
-    top: 0;
+    top: 50%;
     transition: 0.4s all ease;
     transform: translateX(-50%) scale(0.8);
     width: 700px;
@@ -36,7 +36,7 @@
     opacity: 1;
     transition: opacity .2s ease, transform .7s ease;
     transition-delay: .1s;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
 }
 
 .proj__img {
@@ -108,11 +108,11 @@
 .left,
 .right {
     position: absolute;
-    top: 287px;
-    height: 60px;
+    top: 297px;
+    height: 50px;
     background: rgba(54, 54, 54, 0.5);
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 12px 17px;
 
     transition: 0.3s all ease;
 }
