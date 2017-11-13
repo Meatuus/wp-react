@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import Slider from '../Slider/Slider';
 import lefty from './lefty.svg';
 import righty from './righty.svg';
 
@@ -39,7 +40,6 @@ class Project extends Component {
     }
 
     imageRight() {
-        console.log('right');
         const images = this.state.featImages
         const newImage = images.find((element) => {
             return element === images[images.findIndex((el) => {
@@ -53,6 +53,13 @@ class Project extends Component {
         console.log('project mounted');
         setTimeout(function () { this.setState({ mounted: true }) }.bind(this), 10);
     }
+
+
+    // 1. onclick - setstate 'ie 'removing item
+    // 2. conditoional statement in return div - if state give class that will fade out image
+    // 3. set state of next selected image
+    // 4. have default of selected image to have low opacity
+    // 5. then setstaet of 'removing item' to false and bring opacity back to 1
 
     render() {
         const {project} = this.props
@@ -83,6 +90,10 @@ class Project extends Component {
             <div className={mounted ? "proj__bg mounted" : "proj__bg"} onClick={this.close}>
                 <div className={mounted ? "proj__container mounted" : "proj__container"} onClick={this.stopPropagation} onTransitionEnd={this.transitionEnd}>    
                     <span className="proj__close" onClick={this.close}>X</span>
+                    <Slider image={selectedImage}>
+                        {leftArrow}
+                        {rightArrow}
+                    </Slider>
                     <div className="proj__img" style={bg}>
                         {leftArrow}
                         {rightArrow}

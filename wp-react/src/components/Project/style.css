@@ -48,6 +48,20 @@
     border-bottom: 3px solid;
 }
 
+.proj__img {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+.proj__img.changing {
+    opacity: 0.1;
+    transition: opacity .4s ease;
+}
+.proj__img.adding {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+
 .proj__close {
     position: absolute;
     bottom: 20px;
