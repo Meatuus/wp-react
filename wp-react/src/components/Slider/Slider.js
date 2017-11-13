@@ -11,7 +11,9 @@ class Slider extends Component {
         
         this.state = {
             changingImage: false,
-            currentImage: this.props.image
+            changingDirection: null,
+            currentImage: this.props.image,
+            prevImage: null
     //     //     mounted: false,
     //     //     featImages: this.props.project.gallery,
     //     //     selectedImage: this.props.project.gallery[0]
@@ -45,16 +47,30 @@ class Slider extends Component {
     // }
     componentWillReceiveProps(nextProps) {
         if (nextProps.image !== this.props.image) {
-            console.log('new image');
-            this.setState({changingImage: true})
-            setTimeout(function () { this.setState({ currentImage: nextProps.image }) }.bind(this), 1000);
-            // this.setState({changingImage: false})
-            setTimeout(function () { this.setState({ changingImage: false }) }.bind(this), 2000);
-            // if (nextProps.visible) {
-            //     // $(findDOMNode(this)).stop(true, true).fadeIn('slow');
-            // } else {
-            //     // $(findDOMNode(this)).stop(true, true).fadeOut('slow');
-            // }
+            this.setState({ 
+                changingDirection: nextProps.direction, 
+                prevImage: this.state.currentImage,
+                currentImage: nextProps.image,
+                // changingImage: true
+            })
+
+            setTimeout(function() {
+                this.setState({
+                    changingImage: true, 
+                    // changingDirection: null
+                    // currentImage: nextProps.image
+                    // prevImage: null
+                })
+            }.bind(this), 100)
+
+            setTimeout(function () {
+                this.setState({
+                    changingImage: false,
+                    // changingDirection: null
+                    // currentImage: nextProps.image
+                    prevImage: null
+                })
+            }.bind(this), 2000)
         }
     }
 
@@ -72,13 +88,19 @@ class Slider extends Component {
 
     render() {
         const { image } = this.props
-        const { changingImage, currentImage } = this.state
+        const { changingImage, currentImage, changingDirection, prevImage } = this.state
 
         const bg = {
             //     backgroundImage: `url(${project.acf.feature_image.url})`
             backgroundImage: `url(${currentImage.guid})`
         }
 
+        let bgPrev = null
+        if (prevImage) {
+            bgPrev = {
+                backgroundImage: `url(${prevImage.guid})`
+            }
+        }
         // let leftArrow = null
         // let rightArrow = null
         // if ((featImages.findIndex((el) => { return el === selectedImage }) === 0) && (featImages.findIndex((el) => { return el === selectedImage }) === (featImages.length - 1))) {
@@ -94,10 +116,17 @@ class Slider extends Component {
         //     leftArrow = <img src={lefty} alt="" className="left" onClick={this.imageLeft} />
         //     rightArrow = <img src={righty} alt="" className="right" onClick={this.imageRight} />
         // }
+        let classes = ["proj__img--prev"]
+        if (changingDirection && changingImage) {
+            classes.push(`${changingDirection} changing`)
+        } else if (changingDirection) {
+            classes.push(`${changingDirection}`)
+        }
 
         return (
-            <div className={changingImage ? "proj__img changing" : "proj__img"} style={bg}>
-                {this.props.children}
+            <div>
+                <div className={changingImage ? `proj__img ${changingDirection} changing` : "proj__img"} style={bg}></div>
+                <div className={classes.join(' ')} style={bgPrev}></div>
             </div>                
         );
     }

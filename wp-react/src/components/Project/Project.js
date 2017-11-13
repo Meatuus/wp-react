@@ -10,7 +10,8 @@ class Project extends Component {
         this.state = {
             mounted: false,
             featImages: this.props.project.gallery,
-            selectedImage: this.props.project.gallery[0]
+            selectedImage: this.props.project.gallery[0],
+            slideDirection: null
         }
 
         this.close = this.close.bind(this)
@@ -36,7 +37,7 @@ class Project extends Component {
                 return el === this.state.selectedImage
              }) - 1] 
         })
-        this.setState({selectedImage: newImage})
+        this.setState({selectedImage: newImage, slideDirection: "slideLeft"})
     }
 
     imageRight() {
@@ -46,7 +47,7 @@ class Project extends Component {
                 return el === this.state.selectedImage
             }) + 1]
         })
-        this.setState({ selectedImage: newImage })
+        this.setState({ selectedImage: newImage, slideDirection: "slideRight" })
     }
 
     componentDidMount() {
@@ -62,8 +63,8 @@ class Project extends Component {
     // 5. then setstaet of 'removing item' to false and bring opacity back to 1
 
     render() {
-        const {project} = this.props
-        const {mounted, featImages, selectedImage} = this.state
+        const { project } = this.props
+        const { mounted, featImages, selectedImage, slideDirection } = this.state
 
         const bg = {
         //     backgroundImage: `url(${project.acf.feature_image.url})`
@@ -90,10 +91,13 @@ class Project extends Component {
             <div className={mounted ? "proj__bg mounted" : "proj__bg"} onClick={this.close}>
                 <div className={mounted ? "proj__container mounted" : "proj__container"} onClick={this.stopPropagation} onTransitionEnd={this.transitionEnd}>    
                     <span className="proj__close" onClick={this.close}>X</span>
-                    <Slider image={selectedImage}>
+                    {/* <div className="proj__img-wrap"> */}
+                        <Slider image={selectedImage} direction={slideDirection}>
+                        </Slider>
                         {leftArrow}
                         {rightArrow}
-                    </Slider>
+                    {/* </div> */}
+
                     <div className="proj__img" style={bg}>
                         {leftArrow}
                         {rightArrow}
