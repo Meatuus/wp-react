@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles.css';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import Project from '../../components/Project/Project';
+import FilterTags from '../../components/FilterTags/FilterTags';
 
 class Projects extends Component {
     constructor() {
@@ -33,14 +34,14 @@ class Projects extends Component {
         const {projects} = this.props
         const {selectedProj} = this.state
         
-        const projectThumbs = projects.map(proj => {
-            return <Thumbnail img={proj.acf.feature_image.url} 
+        const projectThumbs = projects.map((proj, index) => (
+            <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
-                key={proj.id}
+                key={index}
                 id={proj.id}
                 onLinkClick={this.onLinkClick} />
-        })
+        ))
 
         let project = null
         if (selectedProj !== "") {
@@ -50,6 +51,7 @@ class Projects extends Component {
         return (
             <div className="projects">
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
+                <FilterTags />
                 <div id="projects" className="proj-thmbs">
                     {projectThumbs}
                 </div>

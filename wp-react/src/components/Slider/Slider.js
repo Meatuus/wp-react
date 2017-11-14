@@ -17,11 +17,13 @@ class Slider extends Component {
     }
 
     previousImage() {
-        this.setState({ activeIndex: --this.state.activeIndex })
+        let currentIndex = this.state.activeIndex
+        this.setState({ activeIndex: --currentIndex })
     }
 
     nextImage() {
-        this.setState({ activeIndex: ++this.state.activeIndex })
+        let currentIndex = this.state.activeIndex
+        this.setState({ activeIndex: ++currentIndex })
     }
 
     render() {
