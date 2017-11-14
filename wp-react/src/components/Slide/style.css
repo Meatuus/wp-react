@@ -5,10 +5,7 @@
     height: 350px;
 }
 
-.slide {
-    opacity: 0;
-    transition: 0.5s all ease;
-
+.slide {    
     position: absolute;
     top: 0;
     width: 100%;
@@ -17,4 +14,26 @@
 .slide.active {
     opacity: 1;
     transition: 0.5s all ease;
+}
+
+.slide.prev {
+    opacity: 1;
+    transform: translateX(-100%);
+    transition: 0.5s all ease;
+}
+
+.slide.next {
+    opacity: 1;
+    transform: translateX(100%);
+    transition: 0.5s all ease;
+}
+
+.slide.on-left {
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+.slide.on-right {
+    opacity: 1;
+    transform: translateX(100%);
 }

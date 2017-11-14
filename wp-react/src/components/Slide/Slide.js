@@ -10,8 +10,21 @@ class Slide extends Component {
             backgroundImage: `url(${image.guid})`
         }
 
+        let classList = ["slide"]
+        if (activeIndex === index) {
+            classList.push("active")
+        } else if (activeIndex === index + 1) {
+            classList.push("prev")
+        } else if (activeIndex === index - 1) {
+            classList.push("next")
+        } else if (activeIndex > index) {
+            classList.push("on-left")
+        } else {
+            classList.push("on-right")
+        }
+
         return (
-            <li className={activeIndex === index ? "slide active" : "slide"}>
+            <li className={classList.join(' ')}>
                 <div className="proj__img" style={bg}></div>
             </li>
         );
