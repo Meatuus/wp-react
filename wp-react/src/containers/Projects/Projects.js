@@ -33,7 +33,7 @@ class Projects extends Component {
         const {projects} = this.props
         const {selectedProj} = this.state
         
-        const hero = projects.map(proj => {
+        const projectThumbs = projects.map(proj => {
             return <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
@@ -51,7 +51,7 @@ class Projects extends Component {
             <div className="projects">
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
                 <div id="projects" className="proj-thmbs">
-                    {hero}
+                    {projectThumbs}
                 </div>
                 {project}
             </div>
