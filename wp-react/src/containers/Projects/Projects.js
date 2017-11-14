@@ -10,21 +10,12 @@ class Projects extends Component {
 
         this.state = {
             selectedProj: "",
-            filteredTags: "all",
             filteredProjects: []
         }
 
         this.onLinkClick = this.onLinkClick.bind(this)
         this.onFilterTags = this.onFilterTags.bind(this)
     }
-
-    // componentDidMount() {
-    //     console.log('projects mounting');
-    //     console.log(this.props.projects);
-    //     this.setState({
-    //         filteredProjects: this.props.projects
-    //     })
-    // }
 
     componentWillReceiveProps(nextProps) {
         if (this.props !== nextProps) {
@@ -50,13 +41,23 @@ class Projects extends Component {
     }
 
     onFilterTags(tag) {
-        console.log('inside filter tags - projects');
-        console.log(tag);
+        let allProjects = this.props.projects
+
+        if (tag === "all") {
+            this.setState({
+                filteredProjects: this.props.projects
+            })
+        } else {
+            let filtered = allProjects.filter(proj => proj.stack_tag.includes(tag))
+            this.setState({
+                filteredProjects: filtered
+            })
+        }
     }
 
     render() {
-        const {projects} = this.props
-        const {selectedProj, filteredTags, filteredProjects} = this.state
+        const {selectedProj, filteredProjects} = this.state
+
         
         const projectThumbs = filteredProjects.map((proj, index) => (
             <Thumbnail img={proj.acf.feature_image.url} 
