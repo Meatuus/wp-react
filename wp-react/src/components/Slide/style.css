@@ -1,0 +1,20 @@
+.slides {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    height: 350px;
+}
+
+.slide {
+    opacity: 0;
+    transition: 0.5s all ease;
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.slide.active {
+    opacity: 1;
+    transition: 0.5s all ease;
+}
