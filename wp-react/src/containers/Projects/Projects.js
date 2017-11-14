@@ -57,7 +57,6 @@ class Projects extends Component {
 
     render() {
         const {selectedProj, filteredProjects} = this.state
-
         
         const projectThumbs = filteredProjects.map((proj, index) => (
             <Thumbnail img={proj.acf.feature_image.url} 
