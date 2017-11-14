@@ -4,17 +4,16 @@ class Tag extends Component {
     constructor() {
         super()
 
-        this.onTagSelect = this.onTagSelect.bind(this)
+        this.onTagClick = this.onTagClick.bind(this)
     }
 
-    onTagSelect() {
-        console.log(this.props.title);
-        console.log(this);
+    onTagClick() {
+        this.props.onTagClick(this.props.id)
     }
 
     render() {
         return (
-            <li onClick={this.onTagSelect} >
+            <li onClick={this.onTagClick} >
                 {this.props.title}
             </li>
         );
@@ -22,3 +21,4 @@ class Tag extends Component {
 }
 
 export default Tag;
+

@@ -5,14 +5,33 @@ import Project from '../../components/Project/Project';
 import FilterTags from '../../components/FilterTags/FilterTags';
 
 class Projects extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            selectedProj: ""
+            selectedProj: "",
+            filteredTags: "all",
+            filteredProjects: []
         }
 
         this.onLinkClick = this.onLinkClick.bind(this)
+        this.onFilterTags = this.onFilterTags.bind(this)
+    }
+
+    // componentDidMount() {
+    //     console.log('projects mounting');
+    //     console.log(this.props.projects);
+    //     this.setState({
+    //         filteredProjects: this.props.projects
+    //     })
+    // }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props !== nextProps) {
+            this.setState({
+                filteredProjects: nextProps.projects
+            })
+        }
     }
 
     onLinkClick(id) {
@@ -30,11 +49,16 @@ class Projects extends Component {
         this.setState({selectedProj: ""})
     }
 
+    onFilterTags(tag) {
+        console.log('inside filter tags - projects');
+        console.log(tag);
+    }
+
     render() {
         const {projects} = this.props
-        const {selectedProj} = this.state
+        const {selectedProj, filteredTags, filteredProjects} = this.state
         
-        const projectThumbs = projects.map((proj, index) => (
+        const projectThumbs = filteredProjects.map((proj, index) => (
             <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
@@ -51,7 +75,7 @@ class Projects extends Component {
         return (
             <div className="projects">
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
-                <FilterTags />
+                <FilterTags onTagClick={this.onFilterTags} />
                 <div id="projects" className="proj-thmbs">
                     {projectThumbs}
                 </div>
