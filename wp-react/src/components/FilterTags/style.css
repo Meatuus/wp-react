@@ -4,4 +4,7 @@
     display: flex;
     align-items: baseline;
     justify-content: space-evenly;
+
+    margin: 15px auto;
+    max-width: 800px;
 }

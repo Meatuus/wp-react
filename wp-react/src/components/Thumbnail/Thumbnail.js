@@ -30,7 +30,7 @@ class Thumbnail extends Component {
         const { img, title, subhd } = this.props
         
         const bg = {
-            background: `url(${img})`,
+            backgroundImage: `url(${img})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
         }
