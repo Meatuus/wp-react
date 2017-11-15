@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css';
 import Tag from '../Tag/Tag';
 
 class FilterTags extends Component {
@@ -13,14 +14,14 @@ class FilterTags extends Component {
     }
 
     render() {
+        const {selectedTag} = this.props
+
         return (
-            <ul>
-                {/* <li>All</li> */}
-                <Tag title="All" id="all" onTagClick={this.onTagClick}/>
-                <Tag title="CMS" id={3} onTagClick={this.onTagClick}/>
-                <Tag title="Javascript" id={2} onTagClick={this.onTagClick}/>
-                <Tag title="Ruby" id={5} onTagClick={this.onTagClick}/>
-                <Tag title="Scss" id={4} onTagClick={this.onTagClick}/>
+            <ul className="filter-list">
+                <Tag title="All" id="all" filterTag={selectedTag} onTagClick={this.onTagClick}/>
+                <Tag title="CMS" id={3} filterTag={selectedTag} onTagClick={this.onTagClick}/>
+                <Tag title="Javascript" id={2} filterTag={selectedTag} onTagClick={this.onTagClick}/>
+                <Tag title="Ruby" id={5} filterTag={selectedTag} onTagClick={this.onTagClick}/>
             </ul>
         );
     }

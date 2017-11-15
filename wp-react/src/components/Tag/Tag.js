@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css';
 
 class Tag extends Component {
     constructor() {
@@ -12,9 +13,10 @@ class Tag extends Component {
     }
 
     render() {
+        const {filterTag, id, title} = this.props
         return (
-            <li onClick={this.onTagClick} >
-                {this.props.title}
+            <li className={filterTag === id ? "filter-item active" : "filter-item"} onClick={this.onTagClick} >
+                {title}
             </li>
         );
     }

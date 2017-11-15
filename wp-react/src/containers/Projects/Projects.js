@@ -10,7 +10,8 @@ class Projects extends Component {
 
         this.state = {
             selectedProj: "",
-            filteredProjects: []
+            filteredProjects: [],
+            filterTag: "all"
         }
 
         this.onLinkClick = this.onLinkClick.bind(this)
@@ -45,18 +46,20 @@ class Projects extends Component {
 
         if (tag === "all") {
             this.setState({
-                filteredProjects: this.props.projects
+                filteredProjects: this.props.projects,
+                filterTag: tag
             })
         } else {
             let filtered = allProjects.filter(proj => proj.stack_tag.includes(tag))
             this.setState({
-                filteredProjects: filtered
+                filteredProjects: filtered,
+                filterTag: tag
             })
         }
     }
 
     render() {
-        const {selectedProj, filteredProjects} = this.state
+        const {selectedProj, filteredProjects, filterTag} = this.state
         
         const projectThumbs = filteredProjects.map((proj, index) => (
             <Thumbnail img={proj.acf.feature_image.url} 
@@ -75,7 +78,7 @@ class Projects extends Component {
         return (
             <div className="projects">
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
-                <FilterTags onTagClick={this.onFilterTags} />
+                <FilterTags selectedTag={filterTag} onTagClick={this.onFilterTags} />
                 <div id="projects" className="proj-thmbs">
                     {projectThumbs}
                 </div>
