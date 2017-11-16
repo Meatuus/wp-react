@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import './styles.css';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import Project from '../../components/Project/Project';
@@ -11,19 +12,27 @@ class Projects extends Component {
         this.state = {
             selectedProj: "",
             filteredProjects: [],
-            filterTag: "all"
+            filterTag: "all",
+            items: ['hello', 'world', 'click', 'me']
         }
 
         this.onLinkClick = this.onLinkClick.bind(this)
         this.onFilterTags = this.onFilterTags.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props !== nextProps) {
-            this.setState({
-                filteredProjects: nextProps.projects
-            })
-        }
+    // componentWillReceiveProps(nextProps) {
+    //     if (this.props !== nextProps) {
+    //         console.log('inside willreceive');
+    //         this.setState({
+    //             filteredProjects: nextProps.projects
+    //         })
+    //     }
+    // }
+
+    componentDidMount() {
+        this.setState({
+            filteredProjects: this.props.projects
+        })
     }
 
     onLinkClick(id) {
@@ -65,14 +74,15 @@ class Projects extends Component {
             <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
-                key={index}
+                key={proj.id}
                 id={proj.id}
+                index={index}
                 onLinkClick={this.onLinkClick} />
         ))
 
         let project = null
         if (selectedProj !== "") {
-            project = <Project project={this.state.selectedProj} onClose={this.onCloseSelected} onTransitionEnd={this.transitionEnd}/>
+            project = <Project project={this.state.selectedProj} onClose={this.onCloseSelected}/>
         }
 
         return (
@@ -80,7 +90,15 @@ class Projects extends Component {
                 <h1 className="proj-thmbs__title">PROJECTS</h1>
                 <FilterTags selectedTag={filterTag} onTagClick={this.onFilterTags} />
                 <div id="projects" className="proj-thmbs">
-                    {projectThumbs}
+                    <CSSTransitionGroup
+                        transitionName="example"
+                        transitionLeave={true}
+                        transitionAppear={true}
+                        transitionAppearTimeout={2500}
+                        transitionEnterTimeout={1800}
+                        transitionLeaveTimeout={1800}> 
+                        {projectThumbs}
+                    </CSSTransitionGroup> 
                 </div>
                 {project}
             </div>

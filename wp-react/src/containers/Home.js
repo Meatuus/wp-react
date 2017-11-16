@@ -16,15 +16,25 @@ class Home extends Component {
         fetch(projectsUrl)
             .then(res => res.json())
             .then((json) => {
+                console.log(json);
                 this.setState({ projects: json })
             })
     }
 
     render() {
+        const projects = this.state
+        let allProjects = null
+        // console.log(projects.projects);
+        if (projects.projects.length > 1) {
+            // console.log(projects);
+            // allProjects = projects
+            allProjects = <Projects projects={projects.projects} />
+        }
         return (
             <div>
                 <h2>Home PAge</h2>
-                <Projects projects={this.state.projects} />
+                {/* <Projects projects={this.state.projects} /> */}
+                {allProjects}
             </div>
         );
     }
