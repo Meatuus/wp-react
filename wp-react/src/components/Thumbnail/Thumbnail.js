@@ -33,8 +33,8 @@ class Thumbnail extends Component {
         const bg = {
             backgroundImage: `url(${img})`,
             backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            transform: `translate(${index % 2 === 0 ? "0px" : "100%"}, ${Math.floor(index / 2) * 280}px)`
+            backgroundSize: 'cover'
+            // transform: `translate(${index % 2 === 0 ? "0px" : "100%"}, ${Math.floor(index / 2) * 280}px)`
         }
 
         const {hovered, mounted} = this.state

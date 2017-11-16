@@ -95,8 +95,8 @@ class Projects extends Component {
                         transitionLeave={true}
                         transitionAppear={true}
                         transitionAppearTimeout={2500}
-                        transitionEnterTimeout={1800}
-                        transitionLeaveTimeout={1800}> 
+                        transitionEnterTimeout={1000}
+                        transitionLeaveTimeout={1000}> 
                         {projectThumbs}
                     </CSSTransitionGroup> 
                 </div>
