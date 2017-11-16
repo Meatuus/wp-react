@@ -27,3 +27,14 @@
     border-bottom: none;
     padding-bottom: 5px;
 }
+
+@media screen and (max-width: 450px) {
+
+    .filter-item.active {
+        padding: 5px 10px;
+    }
+    
+    .filter-item {
+        margin: 5px 10px;
+    }
+}
