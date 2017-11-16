@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './style.css';
 
-class Thumbnail extends Component {
+class Thumbnail extends PureComponent {
     constructor() {
         super();
         this.state = {
-            hovered: false,
-            mounted: true
+            hovered: false
         }
 
         this.onHoverOver = this.onHoverOver.bind(this);
@@ -28,33 +27,38 @@ class Thumbnail extends Component {
     }
 
     render() {
-        const { img, title, subhd, index } = this.props
-        
+        const { img, title, subhd, selectedTag } = this.props
+        const { hovered } = this.state
+
         const bg = {
             backgroundImage: `url(${img})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover'
-            // transform: `translate(${index % 2 === 0 ? "0px" : "100%"}, ${Math.floor(index / 2) * 280}px)`
-        }
+        }        
 
-        const {hovered, mounted} = this.state
+        const containerClassList = [`thumb__container`]
+        const titlesClassList = ['thumb__titles']
+        const linkClassList = ['thumb__link']
 
-        const classList = [`thumb__container index__${index}`]
-        if (hovered && !mounted) {
-           classList.push("hovered hide") 
-        } else if (hovered) {
-            classList.push("hovered")
-        } else if (!mounted) {
-            classList.push("hide")
+        if (!selectedTag) {
+            containerClassList.push("hidden")
+            titlesClassList.push("hidden")
+            linkClassList.push("hidden")
+        } 
+
+        if (hovered && selectedTag) {
+            containerClassList.push("hovered")
+            titlesClassList.push("hovered")
+            linkClassList.push("hovered")
         }
 
         return (
-            <div className={classList.join(' ')} style={bg} onMouseEnter={this.onHoverOver} onMouseOver={this.onHoverOver} onMouseLeave={this.onHoverOut} onClick={this.onHoverOver} >
-                <div className={hovered ? "thumb__titles hovered" : "thumb__titles"}>
+            <div className={containerClassList.join(' ')} style={bg} onMouseEnter={this.onHoverOver} onMouseOver={this.onHoverOver} onMouseLeave={this.onHoverOut} onClick={this.onHoverOver} >
+                <div className={titlesClassList.join(' ')}>
                     <h2 className="thumb__h2">{title}</h2>
                     <h3 className="thumb__h3">{subhd}</h3>
                 </div>
-                <a href="" className={hovered ? "thumb__link hovered" : "thumb__link"} onClick={this.onLinkClick}>Learn&nbsp;More</a>
+                <a href="" className={linkClassList.join(' ')} onClick={this.onLinkClick}>Learn&nbsp;More</a>
             </div>
         );
     }

@@ -11,28 +11,11 @@ class Projects extends Component {
 
         this.state = {
             selectedProj: "",
-            filteredProjects: [],
-            filterTag: "all",
-            items: ['hello', 'world', 'click', 'me']
+            filterTag: "all"
         }
 
         this.onLinkClick = this.onLinkClick.bind(this)
         this.onFilterTags = this.onFilterTags.bind(this)
-    }
-
-    // componentWillReceiveProps(nextProps) {
-    //     if (this.props !== nextProps) {
-    //         console.log('inside willreceive');
-    //         this.setState({
-    //             filteredProjects: nextProps.projects
-    //         })
-    //     }
-    // }
-
-    componentDidMount() {
-        this.setState({
-            filteredProjects: this.props.projects
-        })
     }
 
     onLinkClick(id) {
@@ -51,32 +34,21 @@ class Projects extends Component {
     }
 
     onFilterTags(tag) {
-        let allProjects = this.props.projects
-
-        if (tag === "all") {
-            this.setState({
-                filteredProjects: this.props.projects,
-                filterTag: tag
-            })
-        } else {
-            let filtered = allProjects.filter(proj => proj.stack_tag.includes(tag))
-            this.setState({
-                filteredProjects: filtered,
-                filterTag: tag
-            })
-        }
+        this.setState({filterTag: tag})
     }
 
     render() {
-        const {selectedProj, filteredProjects, filterTag} = this.state
+        const projects = this.props
+        const {selectedProj, filterTag} = this.state
         
-        const projectThumbs = filteredProjects.map((proj, index) => (
+        const projectThumbs = projects.projects.map((proj, index) => (
             <Thumbnail img={proj.acf.feature_image.url} 
                 title={proj.title.rendered}
                 subhd={proj.acf.subheading}
                 key={proj.id}
                 id={proj.id}
                 index={index}
+                selectedTag={proj.stack_tag.includes(filterTag) || filterTag === "all" ? true : false}
                 onLinkClick={this.onLinkClick} />
         ))
 
@@ -93,10 +65,8 @@ class Projects extends Component {
                     <CSSTransitionGroup
                         transitionName="example"
                         transitionLeave={true}
-                        transitionAppear={true}
-                        transitionAppearTimeout={2500}
-                        transitionEnterTimeout={1000}
-                        transitionLeaveTimeout={1000}> 
+                        transitionEnterTimeout={2000}
+                        transitionLeaveTimeout={2000}> 
                         {projectThumbs}
                     </CSSTransitionGroup> 
                 </div>
