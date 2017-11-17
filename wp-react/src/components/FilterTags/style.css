@@ -3,7 +3,7 @@
     list-style-type: none;
     display: flex;
     align-items: baseline;
-    justify-content: space-evenly;
+    justify-content: center;
 
     margin: 15px auto;
     max-width: 800px;
