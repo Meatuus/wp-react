@@ -110,3 +110,16 @@
 
     transition: 0.4s all;
 }
+
+
+@media screen and (max-width: 750px) {
+    .proj__container {
+        width: calc(100% - 30px);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .proj__img {
+        height: 250px;
+    }
+}

@@ -33,3 +33,15 @@
 .right {
     right: 0;
 }
+
+
+@media screen and (max-width: 450px) {
+    .slides {
+        height: 250px;
+    }
+
+    .left,
+    .right {
+        top: 197px;
+    }
+}
