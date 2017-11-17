@@ -8,15 +8,13 @@
 }
 
 .filter-item:hover {
-    /* border-bottom: 2px solid #ff3e39; */
-    border-bottom: 2px solid rgb(231, 6, 0);
+    border-bottom: 2px solid #ff3d38;
     padding-bottom: 0;
 }
 
 .filter-item.active {
     color: white;
-    /* background: #ff3e39; */
-    background: rgb(231, 6, 0);
+    background: #ff3d38;
     cursor: default;
     
     margin: 0 10px;
