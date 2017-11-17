@@ -11,7 +11,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        const projectsUrl = "http://local.site.com/wp-json/wp/v2/projects"
+        const projectsUrl = "http://local.site.com/wp-json/wp/v2/projects/?per_page=100"
 
         fetch(projectsUrl)
             .then(res => res.json())
