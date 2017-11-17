@@ -30,7 +30,7 @@ class Home extends Component {
 
         return (
             <div>
-                <h2>Home PAge</h2>
+                {/* <h2>Home PAge</h2> */}
                 {allProjects}
             </div>
         );
