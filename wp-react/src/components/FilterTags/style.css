@@ -5,6 +5,8 @@
     align-items: baseline;
     justify-content: center;
 
+    font-family: 'Poiret One', cursive;
+
     margin: 15px auto;
     max-width: 800px;
 }

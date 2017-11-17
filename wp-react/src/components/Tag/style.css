@@ -1,10 +1,11 @@
 .filter-item {
     font-size: 18px;
+    font-weight: bold;
     /* padding: 5px 18px; */
     padding: 0 0 2px 0;
     margin: 5px 28px;
     cursor: pointer;
-    transition: background 0.4s ease, color 0.4s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .filter-item:hover {
