@@ -18,7 +18,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <header className="App-header">
-                        <Nav />
+                        <Nav name="Testing This"/>
                         <ul>
                             <li><Link to="/">Home</Link></li>
                             {/* <li><Link to="/home/project">Project</Link></li> */}
