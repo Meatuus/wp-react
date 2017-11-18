@@ -8,7 +8,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-hash-link": "^1.1.1",
     "react-transition-group": "^1.2.1",
-    "react-typing": "^1.0.0"
+    "react-typist": "^2.0.4"
   },
   "devDependencies": {
     "react-scripts": "1.0.17"

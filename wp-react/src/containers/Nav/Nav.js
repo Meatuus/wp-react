@@ -91,37 +91,43 @@ class Nav extends Component {
 
     render() {
         const {mounted, typedName} = this.state
-        const name = "Testing Name"
+        // const name = "Testing Name"
 
-        let typed = name.charAt(0)
+        // let typed = name.charAt(0)
         // let newTitle = name.charAt(0)
-        let renderedTitle = <Logo title={name.charAt(0)} />
-        let setDelay = (item, timer) => (
-            // setTimeout(<Logo title={item} />, timer)
-            setTimeout(function () { renderedTitle = <Logo title={item} />; }, timer)
-            // setTimeout(function () { console.log(`${newTitle}`); }, timer)
-            // setTimeout(function () { this.setState({ typedName: item }); }.bind(this), timer)
-        )
+        // // let renderedTitle = <Logo title={name.charAt(0)} />
+        // let setDelay = (item, timer) => (
+        //     // setTimeout(<Logo title={item} />, timer)
+        //     setTimeout(function () { 
+        //         // renderedTitle = <Logo title={item} />; 
+        //         newTitle = item;
+        //         console.log(item);
+        //     }, timer)
+        //     // setTimeout(function () { console.log(`${newTitle}`); }, timer)
+        //     // setTimeout(function () { this.setState({ typedName: item }); }.bind(this), timer)
+        // )
 
-        let delay = 100
-        for (let i = 1; i < name.length; i++) {
+        // let delay = 100
+        // for (let i = 1; i < name.length; i++) {
 
 
-            typed = typed.concat(name.charAt(i))
-            //    let test = typed.concat(title.charAt(i))
-            //    let setDelay = (item, timer) => (
-            //     console.log('test')
-            //         // setTimeout(function () { console.log(`${item} - ${timer}`); }, timer)
-            //         // setTimeout(function () { this.setState({ typedName: item }); }.bind(this), timer)
-            //     )
-            setDelay(typed, delay)
-            delay += 1000
-        }
+        //     typed = typed.concat(name.charAt(i))
+        //     //    let test = typed.concat(title.charAt(i))
+        //     //    let setDelay = (item, timer) => (
+        //     //     console.log('test')
+        //     //         // setTimeout(function () { console.log(`${item} - ${timer}`); }, timer)
+        //     //         // setTimeout(function () { this.setState({ typedName: item }); }.bind(this), timer)
+        //     //     )
+        //     // console.log(typed);
+        //     setDelay(typed, delay)
+        //     delay += 1000
+        // }
         return (
             <nav>
                 <h2 className="nav-title">&#123;&nbsp; <span className={mounted ? "nav-span mounted" : "nav-span"}>{typedName}</span> &nbsp;&#125;</h2>
-                {/* <Logo title={typedName} /> */}
-                {renderedTitle}
+                
+                <Logo title="Testing Name" />
+
             </nav>
 
         );

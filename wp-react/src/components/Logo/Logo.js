@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typist from 'react-typist';
 // import {
 //     BrowserRouter,
 //     Route,
@@ -58,7 +59,14 @@ class Logo extends Component {
 
         return (
             <nav>
-                <h2 className="nav-title">&#123;&nbsp; <span className="nav-span">{title}</span> &nbsp;&#125;</h2>
+                
+                <h2 className="nav-title">
+                    &#123;&nbsp;
+                    <Typist className="nav-span" cursor={true}>
+                        {title}
+                    </Typist>
+                    &nbsp;&#125;
+                </h2>
                 {/* <Logo title={typedName} /> */}
             </nav>
 
