@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import './App.css';
+import Nav from './containers/Nav/Nav';
 import Home from './containers/Home';
 import About from './containers/About';
 // import Project from './containers/Project';
@@ -17,7 +18,7 @@ class App extends Component {
             <BrowserRouter>
                 <div className="App">
                     <header className="App-header">
-                        <h2>Nav Bar</h2>
+                        <Nav />
                         <ul>
                             <li><Link to="/">Home</Link></li>
                             {/* <li><Link to="/home/project">Project</Link></li> */}
