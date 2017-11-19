@@ -1,5 +1,10 @@
+.nav-title {
+    margin: 0;
+}
+
 .nav-span {
     display: inline-block;
+    font-size: 0.8em;
 }
 
 .Cursor--blinking {
@@ -15,7 +20,7 @@
         color: transparent;
     }
     50% {
-        color: white;
+        color: black;
     }
 }
 
@@ -24,7 +29,7 @@
         color: transparent;
     }
     50% {
-        color: white;
+        color: black;
     }
 }
 
@@ -33,7 +38,7 @@
         color: transparent;
     }
     50% {
-        color: white;
+        color: black;
     }
 }
 
@@ -42,7 +47,7 @@
         color: transparent;
     }
     50% {
-        color: white;
+        color: black;
     }
 }
 
@@ -51,6 +56,6 @@
         color: transparent;
     }
     50% {
-        color: white;
+        color: black;
     }
 }
