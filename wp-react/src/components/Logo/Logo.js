@@ -62,7 +62,7 @@ class Logo extends Component {
                 
                 <h2 className="nav-title">
                     &#123;&nbsp;
-                    <Typist className="nav-span" cursor={true}>
+                    <Typist className="nav-span" cursor={{ show: true, hideWhenDone: false, blink: true, element: '|', hideWhenDoneDelay: 100 }} avgTypingDelay={250} startDelay={2000} >
                         {title}
                     </Typist>
                     &nbsp;&#125;

@@ -126,7 +126,7 @@ class Nav extends Component {
             <nav>
                 <h2 className="nav-title">&#123;&nbsp; <span className={mounted ? "nav-span mounted" : "nav-span"}>{typedName}</span> &nbsp;&#125;</h2>
                 
-                <Logo title="Testing Name" />
+                <Logo title="Testing Name. " />
 
             </nav>
 
